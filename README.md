@@ -9,4 +9,6 @@ Projeto para iniciantes aprenderem automação de testes.
 3. Java API → /03-java-api  
 4. Java Web → /04-java-web  
 5. Cypress API → /05-cypress-api  
-6. Cypress Web → /06-cypress-web  
+6. Cypress Web → /06-cypress-web
+
+Made with ❤️ by [CodeFlow].
