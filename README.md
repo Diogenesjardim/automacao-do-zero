@@ -4,12 +4,12 @@ Projeto para iniciantes aprenderem automação de testes.
 
 ## 📚 Etapas
 
-1. Setup → /01-setup  
-2. Git e GitHub → /02-git-github  
-3. Java API → /03-java-api  
-4. Java Web → /04-java-web  
-5. Cypress API → /05-cypress-api  
-6. Cypress Web → /06-cypress-web
+1. [Setup](./01-setup/README.md)  
+2. [Git e GitHub](./02-git-github/README.md)  
+3. [Java API](./03-java-api/README.md)  
+4. [Java Web](./04-java-web/README.md)  
+5. [Cypress API](./05-cypress-api/README.md)  
+6. [Cypress Web](./06-cypress-web/README.md)
 
 ## 🛠️ Configuração do Ambiente
 
@@ -50,28 +50,13 @@ Projeto para iniciantes aprenderem automação de testes.
 
 ## 🔧 Executando os Testes
 
-### Java Web (/04-java-web)
+Cada etapa tem seu próprio `README.md` com instruções detalhadas de execução. Navegue para a pasta correspondente e siga as orientações lá.
 
-1. Navegue para a pasta: `cd 04-java-web`
-2. Execute: `mvn test`
-   - O WebDriverManager baixará automaticamente o ChromeDriver.
-   - O teste abrirá o Chrome e acessará https://example.com.
+Para um exemplo rápido:
+- **Java Web**: `cd 04-java-web && mvn test`
+- **Cypress API**: `cd 05-cypress-api && npm install && npm test`
 
-### Possíveis Erros e Correções
-
-- **Erro: "mvn: command not found"**: Instale o Maven e adicione ao PATH.
-- **Erro: "No compiler is provided"**: Configure o JAVA_HOME corretamente.
-- **Erro: "TestEngine with ID 'junit-jupiter' failed to discover tests"**: Certifique-se de que a classe de teste está em um pacote (ex: `com.estudo`).
-- **Erro: "class file version"**: Use JDK 17+ e configure o pom.xml com `<maven.compiler.source>17</maven.compiler.source>`.
-- **Erro: ChromeDriver não encontrado**: O WebDriverManager cuida disso; certifique-se de que o Chrome está instalado.
-
-### Dependências do Projeto
-
-- Selenium WebDriver 4.18.1
-- JUnit 5.9.2
-- WebDriverManager 5.6.2
-
-Para mais detalhes, consulte o `pom.xml` em cada módulo.
+Consulte os READMEs específicos para pré-requisitos e comandos completos.
 
 
 
