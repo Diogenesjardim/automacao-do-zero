@@ -11,4 +11,4 @@ Projeto para iniciantes aprenderem automação de testes.
 5. Cypress API → /05-cypress-api  
 6. Cypress Web → /06-cypress-web
 
-Feito com ❤️ por [CodeFlow].
+ Feito com ❤️ por [CodeFlow].
