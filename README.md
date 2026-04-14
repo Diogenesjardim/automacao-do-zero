@@ -74,4 +74,7 @@ Projeto para iniciantes aprenderem automação de testes.
 Para mais detalhes, consulte o `pom.xml` em cada módulo.
 
 
+
 Feito com ❤️ por [CodeFlow]
+
+

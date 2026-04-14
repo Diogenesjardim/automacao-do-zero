@@ -29,6 +29,7 @@ public class TestWeb {
         Thread.sleep(5000); // espera 5 segundos
     
         // Fecha o navegador e encerra a sessão do WebDriver
+
         driver.quit();
     }
 }
