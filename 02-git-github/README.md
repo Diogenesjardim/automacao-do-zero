@@ -1,6 +1,17 @@
 # 🔧 Git e GitHub
 
-## 📥 Clonar repositório
+## � Criar conta no GitHub
+
+1. Acesse [github.com](https://github.com)
+2. Clique em "Sign up" (cadastrar-se)
+3. Preencha seu e-mail, crie uma senha e escolha um nome de usuário
+4. Clique em "Create account"
+5. Verifique seu e-mail e confirme a conta
+6. Escolha o plano gratuito (Free)
+
+---
+
+## �📥 Clonar repositório
 
 No GitHub, clique em "Code" e copie a URL.
 
