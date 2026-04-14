@@ -11,7 +11,6 @@ Projeto para iniciantes aprenderem automação de testes.
 5. Cypress API → /05-cypress-api  
 6. Cypress Web → /06-cypress-web
 
-<<<<<<< HEAD
 ## 🛠️ Configuração do Ambiente
 
 ### Pré-requisitos
@@ -76,6 +75,3 @@ Para mais detalhes, consulte o `pom.xml` em cada módulo.
 
 
 Feito com ❤️ por [CodeFlow]
-=======
- Feito com ❤️ por [CodeFlow]
->>>>>>> aad89f916521abdfe096f0de7ee16aba24f2c97a
