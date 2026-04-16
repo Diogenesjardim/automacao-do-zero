@@ -1,38 +1,77 @@
 # 🚀 Automação do Zero
 
-Projeto para iniciantes aprenderem automação de testes.
+Projeto para iniciantes aprenderem automação de testes com **JavaScript e Cypress**.
+
+---
 
 ## 📚 Etapas
 
-1. [Setup](./01-setup/README.md)  
-2. [Git e GitHub](./02-git-github/README.md)  
-3. [Cypress API](./05-cypress-api/README.md)  
-4. [Cypress Web](./06-cypress-web/README.md)
+| # | Etapa | Descrição |
+|---|-------|-----------|
+| 1 | [Setup](./01-setup/README.md) | Instalação do ambiente |
+| 2 | [Git e GitHub](./02-git-github/README.md) | Versionamento de código |
+| 3 | [Cypress API](./05-cypress-api/README.md) | Testes de API com Cypress |
+| 4 | [Cypress Web](./06-cypress-web/README.md) | Testes E2E com Cypress |
 
-## 🛠️ Configuração do Ambiente
+---
 
-### Pré-requisitos
+## 🛠️ Pré-requisitos
 
-- **Node.js**: Baixe e instale em [nodejs.org](https://nodejs.org).
-- **Git**: Baixe e instale em [git-scm.com](https://git-scm.com).
+Antes de começar, instale:
 
-### Verificação
+- **Node.js 18+** → [nodejs.org](https://nodejs.org)
+- **Git** → [git-scm.com](https://git-scm.com)
+- **VS Code** → [code.visualstudio.com](https://code.visualstudio.com)
 
-- `node -v`: Deve mostrar a versão do Node.
-- `npm -v`: Deve mostrar a versão do npm.
+Verifique as instalações:
 
-## 🔧 Executando os Testes
+```bash
+node -v
+npm -v
+git --version
+```
 
-Cada etapa tem seu próprio `README.md` com instruções detalhadas de execução. Navegue para a pasta correspondente e siga as orientações lá.
+---
 
-Para um exemplo rápido:
-- **Cypress API**: `cd 05-cypress-api && npm install && npm test`
-- **Cypress Web**: `cd 06-cypress-web && npm install && npm test`
+## ▶️ Executando os Testes
 
-Consulte os READMEs específicos para pré-requisitos e comandos completos.
+### Cypress API
 
+```bash
+cd 05-cypress-api
+npm install
+npm test
+```
 
+### Cypress Web
 
-Feito com ❤️ por [CodeFlow]
+```bash
+cd 06-cypress-web
+npm install
+npm test
+```
 
+---
 
+## 📁 Estrutura do Projeto
+
+```
+automacao-do-zero/
+├── 01-setup/          # Guia de instalação do ambiente
+├── 02-git-github/     # Comandos Git e GitHub
+├── 05-cypress-api/    # Testes de API com Cypress
+└── 06-cypress-web/    # Testes E2E Web com Cypress
+```
+
+---
+
+## ✅ Status dos Testes
+
+| Suite | Testes | Status |
+|-------|--------|--------|
+| Cypress API | Retorna 200 | ✅ Passando |
+| Cypress Web | Abre o site e valida a página | ✅ Passando |
+
+---
+
+Feito com ❤️ por [CodeFlow](https://github.com/Diogenesjardim)
