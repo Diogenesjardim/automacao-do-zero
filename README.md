@@ -1,65 +1,105 @@
 # 🚀 Automação do Zero
 
-Projeto para iniciantes aprenderem automação de testes.
+Projeto para iniciantes aprenderem automação de testes do zero, passando por Git, Java e Cypress.
+
+---
 
 ## 📚 Etapas
 
-1. [Setup](./01-setup/README.md)  
-2. [Git e GitHub](./02-git-github/README.md)  
-3. [Java API](./03-java-api/README.md)  
-4. [Java Web](./04-java-web/README.md)  
-5. [Cypress API](./05-cypress-api/README.md)  
-6. [Cypress Web](./06-cypress-web/README.md)
+| # | Etapa | Tecnologia | Descrição |
+|---|-------|------------|-----------|
+| 1 | [Setup](./01-setup/README.md) | — | Instalação do ambiente |
+| 2 | [Git e GitHub](./02-git-github/README.md) | Git | Versionamento de código |
+| 3 | [Java API](./03-java-api/README.md) | Java + Maven | Testes de API com Java |
+| 4 | [Java Web](./04-java-web/README.md) | Java + Maven | Testes Web com Java |
+| 5 | [Cypress API](./05-cypress-api/README.md) | JavaScript | Testes de API com Cypress |
+| 6 | [Cypress Web](./06-cypress-web/README.md) | JavaScript | Testes E2E com Cypress |
 
-## 🛠️ Configuração do Ambiente
+---
 
-### Pré-requisitos
+## 🛠️ Pré-requisitos
 
-- **Java JDK 17 ou superior**: Baixe e instale o JDK do [Eclipse Adoptium](https://adoptium.net/) ou [OpenJDK](https://openjdk.java.net/).
-- **Apache Maven 3.9+**: Baixe e instale o Maven do [site oficial](https://maven.apache.org/download.cgi).
+### Java (Etapas 3 e 4)
 
-### Configuração no Windows
+- **Java JDK 17+** → [Eclipse Adoptium](https://adoptium.net/) ou [OpenJDK](https://openjdk.java.net/)
+- **Apache Maven 3.9+** → [maven.apache.org](https://maven.apache.org/download.cgi)
 
-1. **Instalar JDK**:
-   - Baixe o JDK 17+ (ex: `jdk-17.x.x`) e extraia para `C:\Program Files\Java\` ou similar.
-   - Adicione ao PATH: `C:\Program Files\Java\jdk-17.x.x\bin`
+Configuração no Windows (Git Bash):
 
-2. **Instalar Maven**:
-   - Baixe o Maven (ex: `apache-maven-3.9.x-bin.zip`) e extraia para `C:\maven\` ou similar.
-   - Adicione ao PATH: `C:\maven\apache-maven-3.9.x\bin`
+```bash
+# Adicione ao ~/.bashrc
+export JAVA_HOME=/c/Program\ Files/Java/jdk-17.x.x
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:/c/maven/apache-maven-3.9.x/bin
+```
 
-3. **Configurar variáveis de ambiente**:
-   - Defina `JAVA_HOME` como o caminho do JDK (ex: `C:\Program Files\Java\jdk-17.x.x`).
-   - Defina `MAVEN_HOME` como o caminho do Maven (ex: `C:\maven\apache-maven-3.9.x`).
-   - Reinicie o terminal ou execute `source ~/.bashrc` (se configurado).
+Verifique:
 
-4. **Para Git Bash (MINGW64)**:
-   - Edite `~/.bashrc` e adicione:
-     ```
-     export JAVA_HOME=/c/Program\ Files/Java/jdk-17.x.x
-     export PATH=$PATH:$JAVA_HOME/bin
-     export PATH=$PATH:/c/maven/apache-maven-3.9.x/bin
-     ```
-   - Execute `source ~/.bashrc` para carregar.
+```bash
+java -version   # JDK 17+
+mvn -version    # Maven 3.9+
+```
 
-### Verificação
+### JavaScript (Etapas 5 e 6)
 
-- `java -version`: Deve mostrar JDK 17+.
-- `javac -version`: Deve mostrar o compilador.
-- `mvn -version`: Deve mostrar Maven 3.9+.
+- **Node.js 18+** → [nodejs.org](https://nodejs.org)
+- **Git** → [git-scm.com](https://git-scm.com)
 
-## 🔧 Executando os Testes
+Verifique:
 
-Cada etapa tem seu próprio `README.md` com instruções detalhadas de execução. Navegue para a pasta correspondente e siga as orientações lá.
+```bash
+node -v
+npm -v
+```
 
-Para um exemplo rápido:
-- **Java Web**: `cd 04-java-web && mvn test`
-- **Cypress API**: `cd 05-cypress-api && npm install && npm test`
+---
 
-Consulte os READMEs específicos para pré-requisitos e comandos completos.
+## ▶️ Executando os Testes
 
+### Java API
 
+```bash
+cd 03-java-api
+mvn test
+```
 
-Feito com ❤️ por [CodeFlow]
+### Java Web
 
+```bash
+cd 04-java-web
+mvn test
+```
 
+### Cypress API
+
+```bash
+cd 05-cypress-api
+npm install
+npm test
+```
+
+### Cypress Web
+
+```bash
+cd 06-cypress-web
+npm install
+npm test
+```
+
+---
+
+## � Estrutura do Projeto
+
+```
+automacao-do-zero/
+├── 01-setup/          # Guia de instalação do ambiente
+├── 02-git-github/     # Comandos Git e GitHub
+├── 03-java-api/       # Testes de API com Java
+├── 04-java-web/       # Testes Web com Java
+├── 05-cypress-api/    # Testes de API com Cypress
+└── 06-cypress-web/    # Testes E2E Web com Cypress
+```
+
+---
+
+Feito com ❤️ por [CodeFlow](https://github.com/Diogenesjardim)
