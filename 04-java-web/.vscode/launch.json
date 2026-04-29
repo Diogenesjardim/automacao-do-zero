@@ -1,0 +1,65 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run All Tests",
+            "request": "launch",
+            "mainClass": "org.junit.platform.console.ConsoleLauncher",
+            "args": [
+                "--scan-classpath",
+                "--include-classname=**/*Test,**/*Runner"
+            ],
+            "projectName": "java-web",
+            "cwd": "${workspaceFolder}/04-java-web"
+        },
+        {
+            "type": "java",
+            "name": "Run HomePageTest",
+            "request": "launch",
+            "mainClass": "org.junit.platform.console.ConsoleLauncher",
+            "args": [
+                "--select-class=com.estudo.tests.HomePageTest"
+            ],
+            "projectName": "java-web",
+            "cwd": "${workspaceFolder}/04-java-web"
+        },
+        {
+            "type": "java",
+            "name": "Run CucumberRunner",
+            "request": "launch",
+            "mainClass": "org.junit.platform.console.ConsoleLauncher",
+            "args": [
+                "--select-class=com.estudo.runner.CucumberRunner"
+            ],
+            "projectName": "java-web",
+            "cwd": "${workspaceFolder}/04-java-web"
+        },
+        {
+            "type": "java",
+            "name": "Debug HomePageTest",
+            "request": "launch",
+            "mainClass": "org.junit.platform.console.ConsoleLauncher",
+            "args": [
+                "--select-class=com.estudo.tests.HomePageTest"
+            ],
+            "projectName": "java-web",
+            "cwd": "${workspaceFolder}/04-java-web",
+            "console": "internalConsole",
+            "stopOnEntry": false
+        },
+        {
+            "type": "java",
+            "name": "Debug CucumberRunner",
+            "request": "launch",
+            "mainClass": "org.junit.platform.console.ConsoleLauncher",
+            "args": [
+                "--select-class=com.estudo.runner.CucumberRunner"
+            ],
+            "projectName": "java-web",
+            "cwd": "${workspaceFolder}/04-java-web",
+            "console": "internalConsole",
+            "stopOnEntry": false
+        }
+    ]
+}

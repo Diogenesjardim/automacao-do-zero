@@ -20,12 +20,14 @@ public class DatadogPageTest extends BaseTest {
     @BeforeEach
     public void inicializar() {
         datadogPage = new DatadogPage(driver);
-        datadogPage.abrir();
     }
 
     @Test
     @DisplayName("Deve carregar a página com sucesso")
     public void deveCarregarAPagina() {
+        // Act
+        datadogPage.abrir();
+        
         // Assert
         assertTrue(datadogPage.estaCarregada(),
             "O body da página deveria estar visível após o carregamento");
@@ -34,6 +36,9 @@ public class DatadogPageTest extends BaseTest {
     @Test
     @DisplayName("Deve conter 'Datadog' na URL")
     public void deveConterDatadogNaUrl() {
+        // Act
+        datadogPage.abrir();
+        
         // Assert
         assertTrue(datadogPage.urlContemDatadog(),
             "A URL deveria conter 'datadoghq.com'");
@@ -43,6 +48,7 @@ public class DatadogPageTest extends BaseTest {
     @DisplayName("Deve ter título da aba não vazio")
     public void deveTerTituloNaoVazio() {
         // Act
+        datadogPage.abrir();
         String titulo = datadogPage.obterTitulo();
 
         // Assert
@@ -55,6 +61,7 @@ public class DatadogPageTest extends BaseTest {
     @DisplayName("Deve exibir H1 com texto não vazio")
     public void deveExibirTituloPrincipal() {
         // Act
+        datadogPage.abrir();
         String h1 = datadogPage.obterTituloPrincipal();
 
         // Assert
@@ -66,6 +73,9 @@ public class DatadogPageTest extends BaseTest {
     @Test
     @DisplayName("Deve exibir a barra de navegação")
     public void deveExibirNavBar() {
+        // Act
+        datadogPage.abrir();
+        
         // Assert
         assertTrue(datadogPage.navBarEstaVisivel(),
             "A barra de navegação deveria estar visível");

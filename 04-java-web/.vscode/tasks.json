@@ -1,0 +1,80 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run All Tests",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["test"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/04-java-web"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run HomePageTest",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["test", "-Dtest=HomePageTest"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/04-java-web"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run CucumberRunner",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["test", "-Dtest=CucumberRunner"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/04-java-web"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate Allure Report",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["allure:report"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/04-java-web"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean and Test",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["clean", "test"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/04-java-web"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
