@@ -7,23 +7,43 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Testes da página inicial.
- * Usa o Page Object HomePage para interagir com a página.
+ * =============================================
+ * TESTES DA PÁGINA INICIAL — HomePageTest
+ * =============================================
+ *
+ * O que é isso?
+ * São os testes em si. Cada método com @Test é um caso de teste.
+ *
+ * Repare que esta classe:
+ * - Herda de BaseTest (não precisa abrir/fechar o navegador)
+ * - Usa o Page Object HomePage (não acessa elementos diretamente)
+ * - Fica focada apenas em VERIFICAR o comportamento da página
+ *
+ * Padrão usado nos testes: Arrange / Act / Assert (AAA)
+ * - Arrange → prepara o que precisa
+ * - Act     → executa a ação
+ * - Assert  → verifica o resultado
  */
 public class HomePageTest extends BaseTest {
 
+    /**
+     * Teste 1: Verifica se o site abre e a página carrega.
+     */
     @Test
     public void deveAbrirSiteEValidarPagina() {
-        // Arrange
+        // Arrange — cria o Page Object passando o driver
         HomePage homePage = new HomePage(driver);
 
-        // Act
+        // Act — abre a página
         homePage.abrir();
 
-        // Assert
+        // Assert — verifica se a página está visível
         assertTrue(homePage.estaCarregada(), "A página deveria estar visível");
     }
 
+    /**
+     * Teste 2: Verifica se a página tem um título.
+     */
     @Test
     public void deveRetornarTituloDaPagina() {
         // Arrange
@@ -33,7 +53,7 @@ public class HomePageTest extends BaseTest {
         homePage.abrir();
         String titulo = homePage.obterTitulo();
 
-        // Assert
+        // Assert — o título não pode ser nulo nem vazio
         assertTrue(titulo != null && !titulo.isEmpty(), "O título da página não deveria estar vazio");
     }
 }
