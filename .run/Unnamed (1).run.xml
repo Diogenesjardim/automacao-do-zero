@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unnamed (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" singleton="false" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="junit.textui.TestRunner" />
+    <module name="automacao-do-zero" />
+    <shortenClasspath name="NONE" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

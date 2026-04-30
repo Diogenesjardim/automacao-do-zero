@@ -2,6 +2,7 @@ package com.estudo.tests;
 
 import com.estudo.base.BaseTest;
 import com.estudo.pages.HomePage;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Testes da página inicial.
  * Usa o Page Object HomePage para interagir com a página.
  */
+@Disabled("Desabilitado para evitar abrir o navegador varias vezes ao rodar a suite. Rode manualmente quando precisar.")
 public class HomePageTest extends BaseTest {
 
     @Test
