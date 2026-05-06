@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AutomationPage {
+public class MetodoPage {
 
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -26,7 +26,7 @@ public class AutomationPage {
             "//*[self::h1 or self::h2][contains(normalize-space(), 'Knowledge') and (contains(normalize-space(), 'maintains itself') or contains(normalize-space(), 'Management Automation'))]"
     );
 
-    public AutomationPage(WebDriver driver) {
+    public MetodoPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }

@@ -1,6 +1,6 @@
 package com.estudo.steps;
 
-import com.estudo.pages.AutomationPage;
+import com.estudo.pages.MetodoPage;
 import com.estudo.support.DriverContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class testSteps {
 
-    private AutomationPage page;
+    private MetodoPage page;
 
     @Given("que acesso a pagina de KM Automation do Guru")
     public void queAcessoAPaginaDeKmAutomationDoGuru() {
-        page = new AutomationPage(DriverContext.getDriver());
+        page = new MetodoPage(DriverContext.getDriver());
         page.abrir();
     }
 
