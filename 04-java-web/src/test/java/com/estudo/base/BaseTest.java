@@ -22,7 +22,22 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
 
+        // Evita detecção como bot (anti-automation fingerprint)
+        options.addArguments("--disable-blink-features=AutomationControlled");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        options.setExperimentalOption("useAutomationExtension", false);
+
         driver = new ChromeDriver(options);
+
+        // Remove o flag navigator.webdriver que sites usam para detectar Selenium
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+            .executeScript("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
+
+        // Timeout de página: máximo 30s para carregar
+        driver.manage().timeouts().pageLoadTimeout(java.time.Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(0));
     }
 
     @AfterEach
