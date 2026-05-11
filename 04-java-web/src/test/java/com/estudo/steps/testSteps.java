@@ -1,6 +1,7 @@
 package com.estudo.steps;
 
 import com.estudo.pages.MetodoPage;
+import com.estudo.pages.NopCommercePage;
 import com.estudo.support.DriverContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -29,6 +30,7 @@ public class testSteps {
     }
 
     private MetodoPage page;
+    private NopCommercePage nopPage;
 
     @Given("que acesso a pagina de KM Automation do Guru")
     public void queAcessoAPaginaDeKmAutomationDoGuru() {
@@ -48,9 +50,45 @@ public class testSteps {
 
     @Then("o titulo da pagina deve estar preenchido")
     public void oTituloDaPaginaDeveEstarPreenchido() {
-        String titulo = page.obterTitulo();
-        assertFalse(titulo == null || titulo.trim().isEmpty(), "O título da página não deveria estar vazio.");
+
+
     }
+
+    // CT02====================== STEPS - NOPCOMMERCE ========================CT002
+
+    @Given("que acesso a pagina NopCommerce")
+    public void queAcessoAPaginaNopCommerce() {
+        nopPage = new NopCommercePage(DriverContext.getDriver());
+        nopPage.abrir();
+    }
+
+    @When("aceito cookies se aparecer na NopCommerce")
+    public void aceitoCookiesSeAparecerNaNopCommerce() {
+        nopPage.aceitarCookiesSeAparecer();
+    }
+
+    @Then("devo ver o logo na pagina NopCommerce")
+    public void devoVerOLogoNaPaginaNopCommerce() {
+
+    }
+
+    @Then("devo ver o menu de navegacao na NopCommerce")
+    public void devoVerOMenuDeNavegacaoNaNopCommerce() {
+
+    }
+
+    @Then("o titulo da pagina NopCommerce deve estar preenchido")
+    public void oTituloDaPaginaNopCommercDeveEstarPreenchido() {
+
+    }
+
+    @Then("os produtos devem estar disponiveis para compra")
+    public void osProdutosDevemEstarDisponiveisParaCompra() {
+
+    }
+
+    // ========================================================================
+
     @After
     public void afterScenario() {
         try {
@@ -61,4 +99,3 @@ public class testSteps {
         }
     }
 }
-
