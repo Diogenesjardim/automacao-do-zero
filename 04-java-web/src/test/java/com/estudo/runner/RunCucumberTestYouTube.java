@@ -14,8 +14,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.estudo")
 @ConfigurationParameter(
         key = PLUGIN_PROPERTY_NAME,
-        value = "pretty, html:target/cucumber-report-nopcommerce.html, json:target/cucumber-report-nopcommerce.json"
+        value = "pretty, html:target/cucumber-report-youtube.html, json:target/cucumber-report-youtube.json"
 )
-public class RunCucumberTestNopCommerce {
+public class RunCucumberTestYouTube {
 }
 

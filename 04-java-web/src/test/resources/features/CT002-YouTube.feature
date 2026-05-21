@@ -6,3 +6,4 @@ Feature: Página https://www.youtube.com/
     Then devo ver o logo no YouTube
     And devo ver o campo de busca no YouTube
     And o titulo da pagina YouTube deve estar preenchido
+

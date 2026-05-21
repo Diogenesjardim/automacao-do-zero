@@ -21,36 +21,49 @@ public class NopCommercePage {
     private final By body = By.tagName("body");
     private final By cookieOkayButton = By.xpath("//button[contains(text(), 'OK') or contains(text(), 'Okay')]");
     private final By logoImage = By.className("header-logo");
-    private final By searchBox = By.id("small-searchterms");
-    private final By productList = By.className("product-grid");
     private final By headerMenu = By.className("header-menu");
-    private final By pageTitle = By.xpath("//h1[@class='page-title']");
+
+    // Localizadores para Desktops e Produtos
+    private final By btnDesktops = By.xpath("//aside//a[normalize-space()='Desktops']");
+    private final By btnDesktopsFallback = By.xpath("//*[@id='main']/div/aside/section[1]/div/ul/li[1]/ul/li[1]/a");
+    private final By produtoDesktops = By.cssSelector(".product-item img");
+    private final By produtoDesktopsFallback = By.xpath("//*[@id='main']/div/section/div/div[2]/div[1]/div/div[1]/div/div/a/img");
+
+    // Menu / navegação (Computers) - preferir linkText, fallback para XPath absoluto
+    private final By menuComputers = By.linkText("Computers");
+    private final By menuComputersFallback = By.xpath("/html/body/div[6]/div/nav/div[2]/div[1]/div[1]/a");
+    private final By btnSubcategoria = By.xpath("/html/body/div[6]/div/nav/div[2]/div[3]/div[1]/a");
 
     public NopCommercePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    /**
-     * Abre a página da NopCommerce
-     */
+
     public void abrir() {
         driver.get(URL);
         wait.until(ExpectedConditions.visibilityOfElementLocated(body));
     }
 
-    /**
-     * Aceita cookies se o banner aparecer
-     */
     public void aceitarCookiesSeAparecer() {
-        try {
-            WebElement btn = wait.until(ExpectedConditions.visibilityOfElementLocated(cookieOkayButton));
-            if (btn.isDisplayed() && btn.isEnabled()) {
-                btn.click();
+        // Tenta uma série de localizadores comuns de cookie/aceitar
+        By[] cookieLocators = new By[] {
+                cookieOkayButton,
+                By.xpath("//button[contains(translate(., 'ACEITAR', 'aceitar'), 'aceitar') or contains(translate(., 'ACCEPT', 'accept'), 'accept') or contains(., 'I agree') or contains(., 'Got it')]")
+        };
+
+        for (By locator : cookieLocators) {
+            try {
+                WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(locator));
+                if (btn != null && btn.isDisplayed() && btn.isEnabled()) {
+                    btn.click();
+                    return;
+                }
+            } catch (Exception ignored) {
+                // tentar próximo locator
             }
-        } catch (TimeoutException | NoSuchElementException ignored) {
-            // Cookie banner não está presente
         }
+
     }
 
     /**
@@ -82,14 +95,96 @@ public class NopCommercePage {
         }
     }
 
+    // ...existing code...
+
     /**
-     * Verifica se existe lista de produtos na página
+     * Verifica se existe produto na página de Desktops
      */
-    public boolean produtosDisponiveis() {
+    public boolean produtoDesktopsExiste() {
         try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(productList)).isDisplayed();
+            WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktops));
+            return el != null && el.isDisplayed();
+        } catch (Exception e) {
+            // tenta fallback absoluto
+            try {
+                WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktopsFallback));
+                return el != null && el.isDisplayed();
+            } catch (Exception ex) {
+                return false;
+            }
+        }
+    }
+
+    /**
+     * Obtém o atributo src da imagem do produto
+     */
+    public String obterSrcProdutoDesktops() {
+        try {
+            WebElement img = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktops));
+            return img.getAttribute("src");
+        } catch (Exception e) {
+            try {
+                WebElement img = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktopsFallback));
+                return img.getAttribute("src");
+            } catch (Exception ex) {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * Obtém o atributo alt da imagem do produto
+     */
+    public String obterAltProdutoDesktops() {
+        try {
+            WebElement img = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktops));
+            return img.getAttribute("alt");
+        } catch (Exception e) {
+            try {
+                WebElement img = wait.until(ExpectedConditions.presenceOfElementLocated(produtoDesktopsFallback));
+                return img.getAttribute("alt");
+            } catch (Exception ex) {
+                return null;
+            }
+        }
+    }
+
+    // Helper genérico para clicar com espera
+    private void safeClick(By locator) {
+        try {
+            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(locator));
+            el.click();
         } catch (TimeoutException e) {
-            return false;
+            throw new RuntimeException("Elemento não foi encontrado/clicável: " + locator + " - " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Clica no menu "Computers" (tenta linkText primeiro, depois fallback absoluto)
+     */
+    public void clicarMenuComputers() {
+        try {
+            safeClick(menuComputers);
+        } catch (RuntimeException e) {
+            safeClick(menuComputersFallback);
+        }
+    }
+
+    /**
+     * Clica no botão de subcategoria (fallback absoluto)
+     */
+    public void clicarBotaoSubcategoria() {
+        safeClick(btnSubcategoria);
+    }
+
+    /**
+     * Clica no botão Desktops (tenta seletor relativo, depois fallback absoluto)
+     */
+    public void clicarBotaoDesktops() {
+        try {
+            safeClick(btnDesktops);
+        } catch (RuntimeException e) {
+            safeClick(btnDesktopsFallback);
         }
     }
 }
